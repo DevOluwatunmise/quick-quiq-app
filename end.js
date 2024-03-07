@@ -3,7 +3,7 @@ const saveScoreBtn = document.getElementById('saveScoreBtn');
 const finalScore = document.getElementById('finalScore');
 const mostRecentScore = localStorage.getItem('mostRecentScore');
 
-const highScores =JSON.parse(localStorage.getItem("highScores"))||[]
+const highScores =JSON.parse(localStorage.getItem("highScore"))||[]
 console.log(mostRecentScore)
 
 // we want to specify how many highscore do we wnt to display on our highscore page 
