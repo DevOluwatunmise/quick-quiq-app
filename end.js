@@ -40,3 +40,6 @@ saveScoreBtn.addEventListener("click", (event) => {
     event.preventDefault();
     saveHighScore()
 })
+
+
+
