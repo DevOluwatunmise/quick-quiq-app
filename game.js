@@ -62,7 +62,7 @@ const startGame = () => {
   
 
   game.classList.remove("hidden");
-  loader.classList.add("hidden")
+  loader.classList.add("hidden");
   getNewQuestion();
 };
 
@@ -123,4 +123,4 @@ const incrementScore = (num) => {
   scoreText.innerText = score;
 };
 
-// startGame();
+startGame();
