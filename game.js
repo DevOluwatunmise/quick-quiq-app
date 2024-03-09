@@ -68,7 +68,7 @@ const startGame = () => {
 
 const getNewQuestion = () => {
   if (availableQuestion.length === 0 || questionCounter >= MAX_QUESTION) {
-    localStorage.setItem("mostRecentScore", score); // moseRecentScore will be the key and score will be the key
+    localStorage.setItem("mostRecentScore", score); // moseRecentScore will be the key and score will be the value
     return window.location.assign("./end.html");
   }
 

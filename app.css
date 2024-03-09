@@ -84,6 +84,7 @@ h3 {
     color: #5ba5eb;
     background: #fff;
     text-decoration: none;
+    border-radius: 5rem;
 }
 
 .btn:hover {
