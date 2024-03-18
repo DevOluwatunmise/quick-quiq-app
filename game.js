@@ -31,12 +31,12 @@ fetch(
       const answerChoices = [...loadingQuestion.incorrect_answers];
       formattedQuestion.answer = Math.floor(Math.random() * 3) + 1;
       answerChoices.splice(
-        formattedQuestion.question - 1,
+        formattedQuestion.answer - 1,
         0,
         loadingQuestion.correct_answer
       );
 
-      answerChoices.forEach((choice, i) => {
+      answerChoices.forEach((choice, i) => {              // it will make the code saerch for 1 but not from 0, the array will look from choice 1 to 4
         formattedQuestion["choice" + (i + 1)] = choice;
       });
 
@@ -68,12 +68,12 @@ const startGame = () => {
 
 const getNewQuestion = () => {
   if (availableQuestion.length === 0 || questionCounter >= MAX_QUESTION) {
-    localStorage.setItem("mostRecentScore", score); // moseRecentScore will be the key and score will be the value
-    return window.location.assign("./end.html");
+    localStorage.setItem("mostRecentScore", score); // moseRecentScore will be the key and score will be the value, it will show the score in the local storage
+    return window.location.assign("./end.html");  // it will return us to end game page to start again(syntax to return to new page or window)
   }
-
+ 
   questionCounter++;
-  progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTION} `;
+  progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTION} `; // it show the progress of the question, like 1 of 7, 2 of 7 etc
   progressBarFull.style.width = `${(questionCounter / MAX_QUESTION) * 100}%`;
 
   const questionIndex = Math.floor(Math.random() * availableQuestion.length);
@@ -91,16 +91,16 @@ const getNewQuestion = () => {
 
 // always use preventdefault anytime u add addEventListener,
 // cos if it is clicked anytime u add addevent it wil reload the page
-// so preventdefault wont all the page to be reloaded when clicked
+// so preventdefault wont allow the page to be reloaded when clicked
 
 choices.forEach((choice) => {
   choice.addEventListener("click", (e) => {
-    // to add event to the choices so thst when click it will go to the nect question
+    // to add event to the choices so that when click it will go to the next question
     e.preventDefault();
 
     if (!acceptingAnswer) return;
 
-    const selectedChoice = e.target;
+    const selectedChoice = e.target;  
     const selectedAnswer = selectedChoice.dataset["number"];
 
     const classToApply =
